@@ -1,12 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import StateProps from "./StateProps";
 // import App from './App';
-import Variable from './Variable';
+// import Variable from './Variable';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <Variable />
+    {/* <Variable /> */}
     {/* <App /> */}
-  </React.StrictMode>
+    <StateProps />
+  </React.StrictMode>,
 );

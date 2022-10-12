@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 // const
 // const harga=3000;
@@ -13,17 +13,17 @@ import React from "react";
 // let 
 // let harga =2000 // let di hadang oleh scoop 
 // if(true){
-//   let harga =1000
+//   // let harga =1000;
 // }
 
 
 
-function Variable() {
-  return (
-    <div>
-      Variable
-      <p>cek harga : {harga}</p>
-    </div>
-  );
-}
-export default Variable;
+// function Variable() {
+//   return (
+//     <div>
+//       Variable
+//       <p>cek harga : {harga}</p>
+//     </div>
+//   );
+// }
+// export default Variable;
