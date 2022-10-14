@@ -3,15 +3,23 @@ import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const Folmulir = ({nama, deskripsi, harga, handleChange, handleSubmit}) => {
+const Folmulir = ({
+  nama,
+  deskripsi,
+  harga,
+  handleChange,
+  handleSubmit,
+  id,
+}) => {
   return (
     <div className="mt-5">
       <Row>
         <Col>
-          <h4>Tambah Data</h4>
+          <h4>{id ? "Edit Data" : "Tambah Data"}</h4>
           <hr />
         </Col>
       </Row>
+      
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
@@ -47,7 +55,7 @@ const Folmulir = ({nama, deskripsi, harga, handleChange, handleSubmit}) => {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-              Submit
+              simpan
             </Button>
           </Form>
         </Col>

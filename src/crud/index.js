@@ -24,17 +24,37 @@ export default class Crud extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     // console.log("Data : ", this.state);
-    this.setState({
-      makanan: [
-        ...this.state.makanan,
-        {
-          id: this.state.makanan.length + 1,
-          nama: this.state.nama,
-          deskripsi: this.state.deskripsi,
-          harga: this.state.harga,
-        }
-      ]
-    });
+
+    if (this.state.id === "") {
+      this.setState({
+        makanan: [
+          ...this.state.makanan,
+          {
+            id: this.state.makanan.length + 1,
+            nama: this.state.nama,
+            deskripsi: this.state.deskripsi,
+            harga: this.state.harga,
+          },
+        ],
+      });
+    } else {
+      const makananYangSelainDiPilih = this.state.makanan
+        .filter((makanan) => makanan.id !== this.state.id)
+        .map((filterMakanan) => {
+          return filterMakanan;
+        });
+      this.setState({
+        makanan: [
+          ...makananYangSelainDiPilih,
+          {
+            id: this.state.makanan.length + 1,
+            nama: this.state.nama,
+            deskripsi: this.state.deskripsi,
+            harga: this.state.harga,
+          },
+        ],
+      });
+    }
 
     this.setState({
       nama: " ",
@@ -44,13 +64,34 @@ export default class Crud extends Component {
     });
   };
 
+  //edit
+  editData = (id) => {
+    // console.log('id : ',id )
+    const makananYangDiPilih = this.state.makanan
+      .filter((makanan) => makanan.id === id)
+      .map((filterMakanan) => {
+        return filterMakanan;
+      });
+
+    this.setState({
+      nama: makananYangDiPilih[0].nama,
+      deskripsi: makananYangDiPilih[0].deskripsi,
+      harga: makananYangDiPilih[0].harga,
+      id: makananYangDiPilih[0].id,
+    });
+  };
+
   render() {
     // console.log((this.state.makanan));
     return (
       <div>
         <NavScrollExample />
         <div className="container mt-4"></div>
-        <BasicExample makanan={this.state.makanan} />
+        <BasicExample
+          //akan dikirim ke table.js
+          makanan={this.state.makanan}
+          editData={this.editData}
+        />
         <Folmulir
           {...this.state}
           handleChange={this.handleChange}
