@@ -1,6 +1,6 @@
 import Table from "react-bootstrap/Table";
 
-function BasicExample({ makanan, editData }) {
+function BasicExample({ makanan, editData, hapusData }) {
   // diambil dari index.js
   return (
     <Table striped bordered hover>
@@ -25,11 +25,16 @@ function BasicExample({ makanan, editData }) {
               <td>{makanan.harga}</td>
               <td>
                 <button
-                  className="btn btn-warning"
+                  className="btn btn-warning m-1"
                   onClick={() => editData(makanan.id)}
                 >
-                  {" "}
-                  edit
+                  Edit
+                </button>
+                <button
+                  className="btn btn-danger  "
+                  onClick={() => hapusData(makanan.id)}
+                >
+                  hapus
                 </button>
               </td>
             </tr>

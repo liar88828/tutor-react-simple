@@ -7,8 +7,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 function NavScrollExample() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
+    {/* countainer */}
         <Navbar.Brand href="#">CRUD REACT JS </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -40,7 +41,7 @@ function NavScrollExample() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-light">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

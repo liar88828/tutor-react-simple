@@ -81,6 +81,18 @@ export default class Crud extends Component {
     });
   };
 
+  hapusData = (id) => {
+    // console.log("hapus id yang ke : ", id);
+    const hapusMakanan = this.state.makanan
+      .filter((makanan) => makanan.id !== id)
+      .map((filterMakanan) => {
+        return filterMakanan;
+      });
+    this.setState({
+      makanan: hapusMakanan,
+    });
+  };
+
   render() {
     // console.log((this.state.makanan));
     return (
@@ -91,6 +103,7 @@ export default class Crud extends Component {
           //akan dikirim ke table.js
           makanan={this.state.makanan}
           editData={this.editData}
+          hapusData={this.hapusData}
         />
         <Folmulir
           {...this.state}
