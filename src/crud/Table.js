@@ -1,6 +1,6 @@
 import Table from "react-bootstrap/Table";
 
-function BasicExample() {
+function BasicExample({ makanan }) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -13,13 +13,17 @@ function BasicExample() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td></td>
-        </tr>
+        {makanan.map((makanan, index) => {
+          return ( // return harus di kasih kurung
+            <tr>
+              <td key={makanan.id}>{index+1}</td>
+              <td>{makanan.nama}</td>
+              <td>{makanan.deskripsi}</td>
+              <td>{makanan.harga}</td>
+              <td></td>
+            </tr>
+          );
+        })}
       </tbody>
     </Table>
   );
